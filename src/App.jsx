@@ -14,6 +14,8 @@ import LoginPage from "./pages/LoginPage";
 import ContactsPage from "./pages/ContactsPage";
 import Layout from "./components/Layout";
 import { refreshUser } from "./redux/auth/operations";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -34,9 +36,31 @@ const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="/register" element={<RegistrationPage />}></Route>
-            <Route path="/login" element={<LoginPage />}></Route>
-            <Route path="/contacts" element={<ContactsPage />}></Route>
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute>
+                  {" "}
+                  <RegistrationPage />
+                </RestrictedRoute>
+              }
+            ></Route>
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute>
+                  <LoginPage />
+                </RestrictedRoute>
+              }
+            ></Route>
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute>
+                  <ContactsPage />
+                </PrivateRoute>
+              }
+            ></Route>
           </Routes>
         </Suspense>
       </Layout>
