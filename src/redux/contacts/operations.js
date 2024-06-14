@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+/*import { createAsyncThunk } from "@reduxjs/toolkit";
 import { addContactApi, apiContactlist, apiDeleteContact } from "../../api";
 
 export const fetchContacts = createAsyncThunk(
@@ -36,4 +36,4 @@ export const deleteContact = createAsyncThunk(
       return thunkApi.rejectWithValue(error.message);
     }
   }
-);
+);*/

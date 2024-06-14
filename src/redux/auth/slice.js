@@ -27,7 +27,7 @@ const INITIAL_STATE = {
 
 const authSlice = createSlice({
   // Ім'я слайсу
-  name: "contacts1", // Початковий стан редюсера слайсу
+  name: "auth", // Початковий стан редюсера слайсу
   initialState: INITIAL_STATE,
   extraReducers: (builder) =>
     builder
@@ -47,6 +47,7 @@ const authSlice = createSlice({
 
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.isLoggedIn = true;
         state.user = action.payload;
       })
 

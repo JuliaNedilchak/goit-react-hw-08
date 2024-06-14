@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+/*import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { addContact, deleteContact, fetchContacts } from "./operations";
 import { selectFiltered } from "../filters/selectors";
 import { selectContactsList } from "./selectors";
@@ -61,12 +61,12 @@ const contactsSlice = createSlice({
       );
     },
   },*/
-});
+//});
 
 // Генератори екшенів
 //export const { addContact, deleteContact } = contactsSlice.actions;
 
-export const selectFilteredContacts = createSelector(
+/*export const selectFilteredContacts = createSelector(
   [selectContactsList, selectFiltered],
   (selectContacts, selectNameFilter) => {
     return selectContacts.filter((contact) =>
@@ -76,4 +76,4 @@ export const selectFilteredContacts = createSelector(
 );
 // Редюсер слайсу
 
-export const contactsReducer = contactsSlice.reducer;
+export const contactsReducer = contactsSlice.reducer;*/

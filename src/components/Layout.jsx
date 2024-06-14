@@ -19,6 +19,7 @@ const Layout = ({ children }) => {
           {isSignedIn ? (
             <>
               <NavLink to="/contacts">Contacts</NavLink>
+
               <div>
                 <span>Hi, {userData.name}</span>
                 <button onClick={onLogout} type="button">

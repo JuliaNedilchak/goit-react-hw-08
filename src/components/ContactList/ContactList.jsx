@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+/*import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import { selectContactsList } from "../../redux/contacts/selectors";
 import { selectFiltered } from "../../redux/filters/selectors";
@@ -19,8 +19,8 @@ const ContactList = () => {
         .toLowerCase()
         .includes(selectNameFilter.toLowerCase());
     });*/
-  //}, [selectContacts, selectNameFilter]);
-  return (
+//}, [selectContacts, selectNameFilter]);
+/*return (
     <ul>
       {filteredContacts.map((contact) => {
         return (
@@ -36,4 +36,4 @@ const ContactList = () => {
   );
 };
 
-export default ContactList;
+export default ContactList;*/

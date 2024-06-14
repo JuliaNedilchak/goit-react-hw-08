@@ -32,4 +32,3 @@ export const apiDeleteContact = async (contactId) => {
   const { data } = await axios.request(options);
   return data;
 };
-

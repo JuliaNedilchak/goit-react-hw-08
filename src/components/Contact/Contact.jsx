@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+/*import { useDispatch } from "react-redux";
 import css from "./Contact.module.css";
 import { deleteContact } from "../../redux/contacts/operations";
 //import { deleteContact } from "../../redux/contactsOps";
@@ -24,4 +24,4 @@ const Contact = ({ name, number, id }) => {
   );
 };
 
-export default Contact;
+export default Contact;*/
