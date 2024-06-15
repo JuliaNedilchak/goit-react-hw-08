@@ -1,79 +1,69 @@
-/*import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { addContact, deleteContact, fetchContacts } from "./operations";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
+
+import {
+  apiAddPhonebookContact,
+  apiDeletePhonebookContact,
+  apiPhonebookContact,
+} from "./operations";
+import { selectPhonebookContacts } from "./selectors";
 import { selectFiltered } from "../filters/selectors";
-import { selectContactsList } from "./selectors";
 
 const INITIAL_STATE = {
-  contacts: {
-    items: [],
-    loading: false,
-    error: null,
-  },
-  filters: {
-    name: "",
-  },
+  phonebookContacts: null,
+  isError: false,
+  isLoading: false,
 };
 
-const contactsSlice = createSlice({
+const phonebookSlice = createSlice({
   // Ім'я слайсу
-  name: "contacts", // Початковий стан редюсера слайсу
-  initialState: INITIAL_STATE, // Об'єкт редюсерів
+  name: "phonebook", // Початковий стан редюсера слайсу
+  initialState: INITIAL_STATE,
   extraReducers: (builder) =>
     builder
-      .addCase(fetchContacts.pending, (state) => {
-        state.contacts.loading = true;
-        state.contacts.error = null;
+      .addCase(apiPhonebookContact.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
       })
-      .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.items = action.payload;
+      .addCase(apiPhonebookContact.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.phonebookContacts = action.payload;
       })
-      .addCase(fetchContacts.rejected, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.error = action.payload;
+
+      .addCase(apiPhonebookContact.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       })
-      .addCase(addContact.pending, (state) => {
-        state.contacts.loading = true;
-        state.contacts.error = null;
+      .addCase(apiAddPhonebookContact.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
       })
-      .addCase(addContact.fulfilled, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.items.push(action.payload);
+      .addCase(apiAddPhonebookContact.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.phonebookContacts.push(action.payload);
       })
-      .addCase(deleteContact.pending, (state) => {
-        state.contacts.loading = true;
-        state.contacts.error = null;
+      .addCase(apiAddPhonebookContact.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       })
-      .addCase(deleteContact.fulfilled, (state, action) => {
-        state.contacts.loading = false;
-        state.contacts.items = state.contacts.items.filter(
+      .addCase(apiDeletePhonebookContact.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+      })
+      .addCase(apiDeletePhonebookContact.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.phonebookContacts = state.phonebookContacts.filter(
           (contact) => contact.id !== action.payload.id
         );
+      })
+      .addCase(apiDeletePhonebookContact.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       }),
 
-  /*reducers: {
-    addContact(state, action) {
-      state.contacts.items.push(action.payload);
-    },
-    deleteContact(state, action) {
-      state.contacts.items = state.contacts.items.filter(
-        (contact) => contact.id !== action.payload
-      );
-    },
-  },*/
-//});
+  // Об'єкт редюсерів
+});
 
 // Генератори екшенів
 //export const { addContact, deleteContact } = contactsSlice.actions;
 
-/*export const selectFilteredContacts = createSelector(
-  [selectContactsList, selectFiltered],
-  (selectContacts, selectNameFilter) => {
-    return selectContacts.filter((contact) =>
-      contact.name.toLowerCase().includes(selectNameFilter.toLowerCase())
-    );
-  }
-);
-// Редюсер слайсу
-
-export const contactsReducer = contactsSlice.reducer;*/
+export const phonebookReducer = phonebookSlice.reducer;

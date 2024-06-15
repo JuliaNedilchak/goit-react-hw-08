@@ -1,4 +1,4 @@
-.block {
+.contactItem {
   display: flex;
   margin-bottom: 8px;
   flex-direction: row;
@@ -7,14 +7,6 @@
   border: 1px solid greenyellow;
   border-radius: 8px;
 }
-
-.contactDetail {
-  display: flex;
-  flex-direction: column;
-}
-
-.buttonDelete {
-  height: 18px;
-  display: flex;
-  align-items: center;
+.button {
+  border-radius: 30px;
 }

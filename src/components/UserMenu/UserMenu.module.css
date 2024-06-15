@@ -1,0 +1,7 @@
+.loginName {
+  display: flex;
+  gap: 20px;
+  margin-left: 20px;
+  flex-direction: column;
+  margin-right: 40px;
+}

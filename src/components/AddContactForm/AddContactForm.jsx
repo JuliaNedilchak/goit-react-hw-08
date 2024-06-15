@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import * as Yup from "yup";
-import { apiAddPhonebookContact } from "../../redux/contactss/operations";
+import { apiAddPhonebookContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
 
 const addPhonebookContactSchema = Yup.object({
