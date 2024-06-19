@@ -1,0 +1,12 @@
+.contactItem {
+  display: flex;
+  margin-bottom: 8px;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid greenyellow;
+  border-radius: 8px;
+}
+.button {
+  border-radius: 30px;
+}
