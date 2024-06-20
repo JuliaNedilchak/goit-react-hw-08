@@ -7,6 +7,7 @@ import {
 } from "./operations";
 import { selectPhonebookContacts } from "./selectors";
 import { selectFiltered } from "../filters/selectors";
+import { logout } from "../auth/operations";
 
 const INITIAL_STATE = {
   phonebookContacts: null,
@@ -58,6 +59,9 @@ const phonebookSlice = createSlice({
       .addCase(apiDeletePhonebookContact.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
+      })
+      .addCase(logout.fulfilled, () => {
+        return INITIAL_STATE;
       }),
 
   // Об'єкт редюсерів
