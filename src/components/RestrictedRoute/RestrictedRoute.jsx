@@ -8,3 +8,10 @@ const RestrictedRoute = ({ children }) => {
 };
 
 export default RestrictedRoute;
+//import { useAuth } from "../../hooks/useAuth";
+
+//export const RestrictedRoute = ({ component: Component, redirectTo = "/" }) => {
+//const { isLoggedIn } = useAuth();
+//return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
+//};
+//export default RestrictedRoute;

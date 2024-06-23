@@ -17,11 +17,13 @@ import { refreshUser } from "./redux/auth/operations";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SearchBox from "./components/SearchBox/SearchBox";
+import { useAuth } from "./hooks/useAuth";
 
 const App = () => {
   const dispatch = useDispatch();
   //const isLoading = useSelector(selectIsLoading);
   //const isError = useSelector(selectError);
+  const { isRefreshing } = useAuth();
 
   //useEffect(() => {
   //dispatch(fetchContacts());
@@ -31,7 +33,9 @@ const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <b>refreshing user...</b>
+  ) : (
     <Layout>
       <Suspense fallback={<Loader />}>
         <Routes>
